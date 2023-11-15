@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Home() {
   return (
     // home heading
@@ -9,20 +12,20 @@ export default function Home() {
       </header>
       {/* home content */}
       <body>
-        <main className="grid grid-flow-row-dense gap-1 sm:gap-0 grid-cols-1 sm:grid-cols-3 grid-rows-10 ml-10 mr-10 mb-12 text-white">
-          <div>
-            <div key="who" className="col-span-1">
+        <main className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0 ml-10 mr-10 mb-12 text-white">
+          <section className="col-span-1 inline-flex flex-col sm:bg-purple-500 sm:rounded-tl-lg">
+            <section
+              key="who"
+              className="bg-purple-600 rounded-lg sm:rounded-none sm:rounded-tl-lg  items-stretch"
+            >
               <div
                 key="title"
-                className="row-span-1 p-3 text-xl text-center text-decoration-line: underline bg-purple-600 rounded-t-md sm:rounded-none sm:rounded-tl-lg"
+                className="p-3 text-xl text-center text-decoration-line: underline "
               >
                 <p>Who am I?</p>
               </div>
 
-              <div
-                key="Bio"
-                className="row-span-2 p-3 pt-0 text-md text-center bg-purple-600 rounded-b-md sm:rounded-none"
-              >
+              <div key="Bio" className="p-3 pt-0 text-md text-center">
                 <p>
                   I'm 23, hold both a British and a German passport, and have
                   German/Nigerian heritage.
@@ -31,65 +34,167 @@ export default function Home() {
                 <p>
                   For the majority of my life, I've lived in High Wycombe,
                   although I was born and, until I was 6, raised in West London.
+                  I spent the best part of 5 years up in Leeds for Uni which was
+                  a blast.
+                </p>
+                <br />
+                <p>
+                  I'm a strong believer that there is a distinct difference
+                  between being alive and living. And I like to spend my time
+                  living. Whether that be through learning, adventuring, or
+                  clowning around.
                 </p>
               </div>
-            </div>
+            </section>
 
-            <div
-              key="languages"
-              className="row-span-1 mt-1 sm:m-0 text-center bg-purple-500 rounded-md sm:rounded-none"
+            <section
+              key="language"
+              className="text-center mt-1 sm:mt-0 bg-purple-500 rounded-lg sm:rounded-none items-stretch"
             >
               <div
                 key="title"
-                className="p-3 text-xl text-decoration-line: underline"
+                className="p-3 text-xl sm:mb-2 text-decoration-line: underline" //try to change mb-2 to dynamic, currently only applied for screens
               >
                 <p>Languages Spoken</p>
               </div>
-              <div className="text-md p-3 pt-0">
-                <p>English: Native</p>
-                <p>German: Fluent</p>
-                <p>Italian: Beginner</p>
-                <p>Japanese: Extreme Beginner</p>
-              </div>
-            </div>
-          </div>
+              <ul className="p-3 pt-0 text-md">
+                <li>English: Native</li>
+                <li>German: Fluent</li>
+                <li>Italian: Beginner</li>
+                <li>Japanese: Extreme Beginner</li>
+              </ul>
+            </section>
+          </section>
 
-          <div key="life" className="col-span-1 sm:col-span-2">
+          <section
+            key="life"
+            className="col-span-1 sm:col-span-2 bg-purple-400 rounded-lg sm:rounded-none sm:rounded-tr-lg"
+          >
             <div
               key="title"
-              className="row-span-1 p-3 text-xl text-center text-decoration-line: underline bg-purple-400 rounded-t-md sm:rounded-none sm:rounded-tr-lg"
+              className="p-3 text-xl text-center text-decoration-line: underline "
             >
               <p>Life so far</p>
             </div>
 
-            <div
-              key="about"
-              className="row-span-3 p-3 pt-0 text-md text-center bg-purple-400 rounded-b-md sm:rounded-none"
-            >
-              <li className="list-none">
-                <p>2000: Born 30th March</p>
-                <p>2000 - 2016: Trainee Cheeky Bugger</p>
-                <p>2005 - 2011: Oakington Manor Primary School</p>
-                <p>2010 - 2016: Competetive Swimmer</p>
-                <p>2011 - 2018: John Hamden Grammar School</p>
-                <p>2017: Driving Test ✅</p>
-                <p>2018: A-Level bosh; Maths A*, Physics A, Further Maths A</p>
-                <p>
+            <div key="about" className="p-3 pt-0 text-md text-center">
+              <ul className="list-none">
+                <li>2000: Born 30th March</li>
+                <li>2000 - 2016: Trainee Cheeky Bugger</li>
+                <li>2005 - 2011: Oakington Manor Primary School</li>
+                <li>2010 - 2016: Competetive Swimmer</li>
+                <li>2011 - 2018: John Hamden Grammar School</li>
+                <li>2017: Driving Test ✅</li>
+                <li>
+                  2018: A-Level bosh; Maths A*, Physics A, Further Maths A
+                </li>
+                <li>
                   2018: Off to the University of Leeds to study Mechatronics and
                   Robotics
-                </p>
-                <p>2021: Bachelor's ✅</p>
-                <p>2021: Started my placement at Beckhoff Automation (BAUK)</p>
-                <p>
+                </li>
+                <li>2021: Bachelor's ✅</li>
+                <li>
+                  2021: Started my placement at Beckhoff Automation (BAUK)
+                </li>
+                <li>
                   2022: Back to uni for my 5th and final year, whilst
                   maintaining part time work at BAUK
-                </p>
-                <p>
-                  2023: Graduating with a first in my Master's of Engineering
-                </p>
-              </li>
+                </li>
+                <li>2023: Stomped through the London Marathon</li>
+                <li>
+                  2023: Graduated with a first in MEng Mechatronics and Robotics
+                </li>
+                <li>2023: Stomped around the lisbon Marathon</li>
+              </ul>
             </div>
-          </div>
+          </section>
+
+          <section
+            key="quotes"
+            className="pb-5 col-span-1 bg-purple-400 rounded-lg sm:rounded-none sm:rounded-b-lg"
+          >
+            <div
+              key="title"
+              className="p-3 text-xl text-center text-decoration-line: underline "
+            >
+              Tippidy top quotations that have blessed me with knowledge
+            </div>
+
+            <div className="p-5 pt-0 text-md text-left">
+              <ul className="list-none">
+                <li>
+                  Nothing in this world is good or bad, thinking makes it so.
+                  <h1 className="text-center text-sm font-bold">
+                    William Shakespeare
+                  </h1>
+                </li>
+                <br />
+                <li>
+                  A ship is most safe in harbour, but that is not what ships are
+                  for.
+                  <h1 className="text-center text-sm font-bold">
+                    John A. Shedd
+                  </h1>
+                </li>
+                <br />
+                <li>
+                  It is not death that a man should fear, but he should fear not
+                  beginning to live.
+                  <h1 className="text-center text-sm font-bold">
+                    Marcus Aurelius
+                  </h1>
+                </li>
+                <br />
+                <li>
+                  Never let the future disturb you. You will meet it, if you
+                  have to, with the same weapons of reason which today arm you
+                  against the present.
+                  <h1 className="text-center text-sm font-bold">
+                    Marcus Aurelius
+                  </h1>
+                </li>
+                <br />
+                <li>
+                  Never attribute to malice that which is adequately explained
+                  by stupidity.
+                  <h1 className="text-center text-sm font-bold">
+                    Robert J. Hanlon
+                  </h1>
+                </li>
+                <br />
+              </ul>
+            </div>
+          </section>
+
+          <section
+            key="gallery"
+            className="pb-5 col-span-2 bg-purple-600 rounded-lg sm:rounded-none sm:rounded-b-lg"
+          >
+            <div
+              key="title"
+              className="p-3 text-xl text-center text-decoration-line: underline"
+            >
+              Gallery
+            </div>
+
+            <div className="hover:opacity-75">
+              <Link href="/gallery">
+                <Image
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{
+                    width: "90%",
+                    height: "auto",
+                    margin: "auto",
+                  }}
+                  src="/profile/preview.jpeg"
+                  alt="Photography Preview"
+                  priority={true}
+                />
+              </Link>
+            </div>
+          </section>
         </main>
       </body>
     </>

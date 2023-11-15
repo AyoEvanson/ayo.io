@@ -5,7 +5,7 @@ export default function ProfilePicture() {
   return (
     <div>
       <Image
-        className="border-4 border-purple-500 dark:border-white drop-shadow-xl rounded-full mx-auto mt-8"
+        className="border-4 border-purple-500 dark:border-white drop-shadow-xl rounded-full mx-auto mt-6 hover:animate-pulse"
         src="/profile/profile.jpg"
         alt="Ayo Odeleye"
         width={200}
