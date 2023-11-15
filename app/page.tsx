@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import previewImage from "../public/profile/preview.jpeg";
+import previewImage from "../public/images/profile/preview.jpeg";
 
 export default function Home() {
   return (
