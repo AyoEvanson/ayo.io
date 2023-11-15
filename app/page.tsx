@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import previewImage from "../public/profile/preview.jpeg";
 
 export default function Home() {
   return (
@@ -188,7 +189,7 @@ export default function Home() {
                     height: "auto",
                     margin: "auto",
                   }}
-                  src="/profile/preview.jpeg"
+                  src={previewImage}
                   alt="Photography Preview"
                   priority={true}
                 />
