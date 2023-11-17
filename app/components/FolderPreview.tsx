@@ -23,7 +23,7 @@ export default function FolderPreview({ folder }: { folder: string }) {
   return (
     <main className="max-w-4xl p-10 inline-flex flex-col-dense grid-cols-1 sm:grid-cols-2 gap-4">
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 bg-gradient-to-t from-lime-200 to-transparent hover:from-teal-200 border-8 border-lime-200 hover:border-teal-200 rounded-lg">
-        <div className="col-span-1 sm:col-span-3 text-xl font-bold text-white">
+        <div className="col-span-1 sm:col-span-3 text-xl text-center font-bold underline underline-offset-2 text-white">
           <h1>{folderName}</h1>
         </div>
         <br />
