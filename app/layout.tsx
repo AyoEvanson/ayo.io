@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import ProfilePicture from "./components/ProfilePicture";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Ayo.io | Home",
+  description: "Inspired, developed and lived by Ayo",
+};
 
 export default function RootLayout({
   children,

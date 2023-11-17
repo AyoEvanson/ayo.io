@@ -20,7 +20,7 @@ export default function Home() {
           >
             <div
               key="title"
-              className="p-3 text-xl text-center text-decoration-line: underline "
+              className="p-3 text-xl text-center font-bold underline"
             >
               <p>Who am I?</p>
             </div>
@@ -53,7 +53,7 @@ export default function Home() {
           >
             <div
               key="title"
-              className="p-3 text-xl sm:mb-2 text-decoration-line: underline" //try to change mb-2 to dynamic, currently only applied for screens
+              className="p-3 text-xl sm:mb-2 font-bold underline" //try to change mb-2 to dynamic, currently only applied for screens
             >
               <p>Languages Spoken</p>
             </div>
@@ -72,7 +72,7 @@ export default function Home() {
         >
           <div
             key="title"
-            className="p-3 text-xl text-center text-decoration-line: underline "
+            className="p-3 text-xl text-center font-bold underline"
           >
             <p>Life so far</p>
           </div>
@@ -111,7 +111,7 @@ export default function Home() {
         >
           <div
             key="title"
-            className="p-3 text-xl text-center text-decoration-line: underline "
+            className="p-3 text-xl text-center font-bold underline"
           >
             Tippidy top quotations that have blessed me with knowledge
           </div>
@@ -161,7 +161,7 @@ export default function Home() {
         >
           <div
             key="title"
-            className="p-3 text-xl text-center text-decoration-line: underline"
+            className="p-3 text-xl text-center font-bold underline"
           >
             Gallery
           </div>
