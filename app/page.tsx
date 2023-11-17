@@ -104,7 +104,7 @@ export default function Home() {
                 <li>
                   2023: Graduated with a first in MEng Mechatronics and Robotics
                 </li>
-                <li>2023: Stomped around the lisbon Marathon</li>
+                <li>2023: Stomped around the Lisbon Marathon</li>
               </ul>
             </div>
           </section>
@@ -121,31 +121,28 @@ export default function Home() {
             </div>
 
             <div className="p-5 pt-0 text-md text-left">
-              <ul className="list-none">
-                <li>
+              <ul className="list-none pb-1">
+                <li className="p-1">
                   Nothing in this world is good or bad, thinking makes it so.
                   <h1 className="text-center text-sm font-bold">
                     William Shakespeare
                   </h1>
                 </li>
-                <br />
-                <li>
+                <li className="p-1">
                   A ship is most safe in harbour, but that is not what ships are
                   for.
                   <h1 className="text-center text-sm font-bold">
                     John A. Shedd
                   </h1>
                 </li>
-                <br />
-                <li>
+                <li className="p-1">
                   It is not death that a man should fear, but he should fear not
                   beginning to live.
                   <h1 className="text-center text-sm font-bold">
                     Marcus Aurelius
                   </h1>
                 </li>
-                <br />
-                <li>
+                <li className="p-1">
                   Never let the future disturb you. You will meet it, if you
                   have to, with the same weapons of reason which today arm you
                   against the present.
@@ -153,7 +150,6 @@ export default function Home() {
                     Marcus Aurelius
                   </h1>
                 </li>
-                <br />
                 <li>
                   Never attribute to malice that which is adequately explained
                   by stupidity.
@@ -161,14 +157,13 @@ export default function Home() {
                     Robert J. Hanlon
                   </h1>
                 </li>
-                <br />
               </ul>
             </div>
           </section>
 
           <section
             key="gallery"
-            className="pb-5 col-span-2 bg-purple-600 rounded-lg sm:rounded-none sm:rounded-b-lg"
+            className="pb-5 col-span-1 sm:col-span-2 bg-purple-600 rounded-lg sm:rounded-none sm:rounded-b-lg"
           >
             <div
               key="title"
