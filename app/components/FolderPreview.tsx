@@ -21,37 +21,33 @@ export default function FolderPreview({ folder }: { folder: string }) {
   const folderName = folder.charAt(0).toUpperCase() + folder.slice(1);
 
   return (
-    <>
-      <main className="grid grid-cols-1 sm:grid-cols-3 m-10 p-5 bg-gradient-to-t from-lime-200 to-transparent hover:from-teal-200 border-8 border-lime-200 hover:border-teal-200 rounded-lg">
-        <section className="col-span-1 sm:col-span-3 row-span-1 mb-2 text-l sm:text-xl text-center font-bold text-white underline opacity-100">
+    <main className="max-w-4xl p-10 inline-flex flex-col-dense grid-cols-1 sm:grid-cols-2 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 bg-gradient-to-t from-lime-200 to-transparent hover:from-teal-200 border-8 border-lime-200 hover:border-teal-200 rounded-lg">
+        <div className="col-span-1 sm:col-span-3 text-xl font-bold text-white">
           <h1>{folderName}</h1>
-        </section>
-
+        </div>
         <br />
-
-        <section className="inline-flex row-flex col-span-3">
+        <div className="col-span-1 sm:col-span-3 inline-flex gap-3 justify-center items-center">
           {previewImages.map((previewImage, index) => (
-            <div className="col-span-1" key={index}>
-              <Link href="/">
-                <Image
-                  src={`/images/photography/${folder}/${previewImage}`}
-                  alt={`Preview Image ${index + 1}`}
-                  priority={true}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  style={{
-                    width: "95%",
-                    height: "100%",
-                    margin: "auto",
-                    objectFit: "cover",
-                  }}
-                />
-              </Link>
-            </div>
+            <Link href="/" key={index}>
+              <Image
+                src={`/images/photography/${folder}/${previewImage}`}
+                alt={`Preview Image ${index + 1}`}
+                priority={true}
+                layout="responsive"
+                width={0}
+                height={0}
+                sizes="auto"
+                style={{
+                  width: "95%",
+                  height: "100%",
+                  margin: "auto",
+                }}
+              />
+            </Link>
           ))}
-        </section>
-      </main>
-    </>
+        </div>
+      </section>
+    </main>
   );
 }
