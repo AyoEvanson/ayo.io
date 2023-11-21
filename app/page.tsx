@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
@@ -10,13 +10,12 @@ export default function Home() {
           Welcome to <span className="font-bold">Ayo.io</span>
         </p>
       </header>
-      {/* home content */}
 
-      <main className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0 ml-10 mr-10 mb-12 text-white">
+      <main className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0 ml-10 mr-10 mb-12 text-white sm:dark:border-lime-200 sm:border-2 sm:rounded-xl">
         <section className="col-span-1 inline-flex flex-col sm:bg-purple-500 sm:rounded-tl-lg">
           <section
             key="who"
-            className="bg-purple-600 rounded-lg sm:rounded-none sm:rounded-tl-lg  items-stretch"
+            className="bg-gradient-to-b from-purple-900 to-purple-700 sm:bg-purple-600 rounded-lg sm:rounded-none sm:rounded-tl-lg  items-stretch"
           >
             <div
               key="title"
@@ -49,7 +48,7 @@ export default function Home() {
 
           <section
             key="language"
-            className="text-center mt-1 sm:mt-0 bg-purple-500 rounded-lg sm:rounded-none items-stretch"
+            className="text-center mt-1 sm:mt-0 bg-gradient-to-b from-purple-700 to-purple-600 sm:bg-purple-500 rounded-lg sm:rounded-none items-stretch"
           >
             <div
               key="title"
@@ -68,7 +67,7 @@ export default function Home() {
 
         <section
           key="life"
-          className="col-span-1 sm:col-span-2 bg-purple-400 rounded-lg sm:rounded-none sm:rounded-tr-lg"
+          className="col-span-1 sm:col-span-2 bg-gradient-to-b from-purple-600 to-purple-400 sm:bg-purple-400 rounded-lg sm:rounded-none sm:rounded-tr-lg"
         >
           <div
             key="title"
@@ -107,7 +106,7 @@ export default function Home() {
 
         <section
           key="quotes"
-          className="pb-5 col-span-1 bg-purple-400 rounded-lg sm:rounded-none sm:rounded-b-lg"
+          className="pb-5 col-span-1 bg-gradient-to-b from-purple-400 to-purple-700 sm:bg-purple-400 rounded-lg sm:rounded-none sm:rounded-bl-lg"
         >
           <div
             key="title"
@@ -157,7 +156,7 @@ export default function Home() {
 
         <section
           key="gallery"
-          className="pb-5 col-span-1 sm:col-span-2 bg-purple-600 rounded-lg sm:rounded-none sm:rounded-b-lg"
+          className="pb-5 col-span-1 sm:col-span-2 bg-gradient-to-b from-purple-700 to-purple-800 sm:bg-purple-600 rounded-lg sm:rounded-none sm:rounded-br-lg"
         >
           <div
             key="title"
@@ -171,15 +170,15 @@ export default function Home() {
               <Image
                 width={0}
                 height={0}
-                sizes="100vw"
-                style={{
-                  width: "90%",
-                  height: "auto",
-                  margin: "auto",
-                }}
                 src="/images/profile/preview.JPEG"
                 alt="Photography Preview"
                 priority={true}
+                sizes="1000vw"
+                style={{
+                  width: "75%",
+                  height: "auto",
+                  margin: "auto",
+                }}
               />
             </Link>
           </div>

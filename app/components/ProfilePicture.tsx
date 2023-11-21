@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function ProfilePicture() {
   return (
@@ -11,7 +11,10 @@ export default function ProfilePicture() {
         width={200}
         height={200}
         priority={true}
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
   );
 }
