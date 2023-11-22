@@ -2,18 +2,6 @@ import HorizontalScroll from "@/app/components/HorizontalScroll";
 import { getFolderImages, getImageFolders } from "@/app/lib/gallery";
 import { notFound } from "next/navigation";
 
-export async function getStaticPaths() {
-  const folders = getImageFolders();
-  const paths = folders.map((folderId) => ({
-    params: { folderId },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
 export function generateMetadata({ params }: { params: { folderId: string } }) {
   let { folderId } = params;
   folderId = folderId.charAt(0).toUpperCase() + folderId.slice(1);
