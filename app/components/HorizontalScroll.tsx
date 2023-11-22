@@ -48,7 +48,7 @@ export default function HorizontalScroll({
 
   return (
     <>
-      <section className="overflow-hidden overflow-x-scroll" ref={triggerRef}>
+      <section className="overflow-hidden" ref={triggerRef}>
         <div className="flex flex-row w-[500vw] h-screen">
           {imageNames.map((imageName, index) => (
             <div
