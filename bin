@@ -112,3 +112,151 @@ export default async function Images({
             </div>
           ))}
         </div>
+
+        import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useRef, useEffect } from "react";
+gsap.registerPlugin(ScrollTrigger);
+
+export default function HorizontalScroll({
+  imageData,
+  folderId,
+}: {
+  imageData: ImageInfo[];
+  folderId: string;
+}) {
+  let imageNames: string[] = [];
+
+  imageData.forEach((image) => {
+    imageNames.push(image.iName);
+  });
+
+  return (
+    <>
+      <section className="overflow-hidden">
+        <div className="flex flex-row">
+          {imageNames.map((imageName, index) => (
+            <div
+              key={imageName}
+              className="flex justify-center align-middle items-center p-3"
+            >
+              <div className="flex flex-col">
+                <h1 className="text-center mb-2 text-xl text-purple-600 dark:text-white font-bold underline">
+                  {imageName}
+                </h1>
+                <br />
+                <Image
+                  src={`/images/photography/${folderId}/${imageName}`}
+                  alt={`Preview Image ${index + 1}`}
+                  priority={true}
+                  width={0}
+                  height={0}
+                  sizes="auto"
+                  style={{
+                    width: "95%",
+                    height: "100%",
+                    margin: "auto",
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+"use client";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useRef, useEffect } from "react";
+gsap.registerPlugin(ScrollTrigger);
+
+export default function HorizontalScroll({
+  imageData,
+  folderId,
+}: {
+  imageData: ImageInfo[];
+  folderId: string;
+}) {
+  let imageNames: string[] = [];
+
+  imageData.forEach((image) => {
+    imageNames.push(image.iName);
+  });
+
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Check if both refs are not null before proceeding
+    if (sectionRef.current && triggerRef.current) {
+      ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function () {
+          // Only run the animation on non-mobile devices
+          let scrollTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: triggerRef.current,
+              start: "top top",
+              end: () =>
+                `+=${sectionRef.current ? sectionRef.current.offsetWidth : 0}`,
+              scrub: true,
+              pin: true,
+              anticipatePin: 1,
+            },
+          });
+
+          scrollTimeline.to(sectionRef.current, {
+            x: () =>
+              -(sectionRef.current
+                ? sectionRef.current.scrollWidth - window.innerWidth
+                : 0),
+            ease: "none",
+          });
+
+          return () => {
+            scrollTimeline.kill();
+          };
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <>
+      <section className="overflow-hidden" ref={triggerRef}>
+        <div className="flex flex-row h-screen" ref={sectionRef}>
+          {imageNames.map((imageName, index) => (
+            <div
+              key={imageName}
+              className="flex justify-center align-middle items-center p-3"
+            >
+              <div className="flex flex-col w-screen">
+                <h1 className="text-center mb-2 text-xl text-purple-600 dark:text-white font-bold underline">
+                  {imageName}
+                </h1>
+                <br />
+                <Image
+                  src={`/images/photography/${folderId}/${imageName}`}
+                  alt={`Preview Image ${index + 1}`}
+                  priority={true}
+                  width={0}
+                  height={0}
+                  sizes="auto"
+                  style={{
+                    width: "50%",
+                    height: "50%",
+                    margin: "auto",
+                  }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}

@@ -15,15 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <html
-        lang="en"
-        className="w-[95vw] m-auto bg-slate-200 dark:bg-purple-800"
-      >
+    <html lang="en" className="w-[95vw] m-auto bg-slate-200 dark:bg-purple-800">
+      <body>
         <Navbar />
         <ProfilePicture />
-        <main>{children}</main>
-      </html>
-    </>
+        {children}
+      </body>
+    </html>
   );
 }
