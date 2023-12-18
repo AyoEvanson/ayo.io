@@ -26,30 +26,102 @@ export default function HorizontalScroll({
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    let skillSet = gsap.utils.toArray(".skill-set");
+  if (screen.orientation.angle == 0) {
+    useEffect(() => {
+      let skillSet = gsap.utils.toArray(".skill-set");
+      let scrollerEndpoint = skillSet.length * 140;
 
-    let to = gsap.to(skillSet, {
-      xPercent: () => -100 * (skillSet.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: scroller.current,
-        markers: false,
-        pin: true,
-        pinSpacing: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-        anticipatePin: 1,
-        snap: 1 / (skillSet.length - 1),
+      let to = gsap.to(skillSet, {
+        xPercent: () => -100 * (skillSet.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: scroller.current,
+          markers: false,
+          pin: true,
+          pinSpacing: true,
+          scrub: 0.5,
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
 
-        end: () => "+=" + window.innerWidth,
-      },
+          end: () => "+=" + scrollerEndpoint,
+        },
+      });
+
+      return () => {
+        to.kill();
+      };
     });
 
-    return () => {
-      to.kill();
-    };
-  });
+    return (
+      <>
+        <div className="overflow-hidden flex">
+          <div>
+            <div id="skills" ref={scroller} className="flex relative h-[80vh]">
+              {imageNames.map((imageName, index) => (
+                <section
+                  key={imageName}
+                  className="skill-set grid grid-cols-1 mt-2 w-[45vw] bg-transparent"
+                >
+                  <div className="col-span-1 mb-2 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
+                    <h2>{imageName}</h2>
+                  </div>
+                  <div className="col-span-1 inline-flex items-center">
+                    <Image
+                      src={`/images/photography/${folderId}/${imageName}`}
+                      alt={`Preview Image ${index + 1}`}
+                      priority={index < 5}
+                      width={0}
+                      height={0}
+                      sizes="auto"
+                      style={{
+                        width: "95%",
+                        height: "100%",
+                        margin: "auto",
+                      }}
+                      className="object-contain max-h-[80vh]"
+                    />
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  } else if (screen.orientation.angle != 0) {
+    return (
+      <>
+        <div className="grid grid-cols-2 flex-col ">
+          {imageNames.map((imageName, index) => (
+            <section
+              key={imageName}
+              className="col-span-1 m-2 bg-purple-900 rounded-lg border-purple-500 border-2"
+            >
+              <div className="col-span-1 mb-2 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
+                <h2>{imageName}</h2>
+              </div>
+              <div className="col-span-1 inline-flex">
+                <Image
+                  src={`/images/photography/${folderId}/${imageName}`}
+                  alt={`Preview Image ${index + 1}`}
+                  priority={index < 5}
+                  width={0}
+                  height={0}
+                  sizes="auto"
+                  style={{
+                    width: "95%",
+                    height: "100%",
+                    margin: "auto",
+                  }}
+                  className="object-contain max-h-[80vh]"
+                />
+              </div>
+            </section>
+          ))}
+        </div>
+      </>
+    );
+  }
 
   if (isLoading)
     return (
@@ -57,46 +129,4 @@ export default function HorizontalScroll({
         Loading...
       </p>
     );
-
-  return (
-    <>
-      <div className="overflow-hidden flex">
-        <div className="overflow-hidden">
-          <div
-            id="skills"
-            ref={scroller}
-            className="flex overflow-x-hidden w-[2000vw] relative h-[90vh]"
-          >
-            {imageNames.map((imageName, index) => (
-              <section
-                ref={skills}
-                key={imageName}
-                className="skill-set grid grid-cols-1 items-center mt-5 w-[60vw] bg-transparent"
-              >
-                <div className="col-span-1 text-center text-purple-600 dark:text-white text-xl font-bold underline">
-                  <h1>{imageName}</h1>
-                </div>
-                <div className="col-span-1 inline-flex">
-                  <Image
-                    src={`/images/photography/${folderId}/${imageName}`}
-                    alt={`Preview Image ${index + 1}`}
-                    priority={true}
-                    width={0}
-                    height={0}
-                    sizes="auto"
-                    style={{
-                      width: "95%",
-                      height: "100%",
-                      margin: "auto",
-                    }}
-                    className="object-contain max-w-[90vw] max-h-[80vh]"
-                  />
-                </div>
-              </section>
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
 }

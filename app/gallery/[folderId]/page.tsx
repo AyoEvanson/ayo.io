@@ -19,7 +19,7 @@ export default function Images({ params }: { params: { folderId: string } }) {
   return (
     <>
       <section>
-        <div className="m-3 mt-5 text-2xl text-center text-purple-600 dark:text-white font-bold underline">
+        <div className="mt-5 text-2xl text-center text-purple-600 dark:text-white font-bold underline">
           {params.folderId.charAt(0).toUpperCase() + params.folderId.slice(1)}
         </div>
         <br />

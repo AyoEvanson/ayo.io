@@ -22,7 +22,7 @@ export default function FolderPreview({ folder }: { folder: string }) {
   const folderName = folder.charAt(0).toUpperCase() + folder.slice(1);
 
   return (
-    <main className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 bg-gradient-to-t from-purple-600 dark:from-lime-200 to-transparent hover:from-teal-200 border-2 border-purple-600 dark:border-lime-200 hover:border-teal-200 rounded-lg">
+    <main className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-5 bg-gradient-to-t from-purple-600 dark:from-purple-200 to-transparent hover:from-teal-200 border-2 border-purple-600 dark:border-purple-200 hover:border-teal-200 rounded-lg">
       <div className="col-span-1 sm:col-span-3 text-xl text-center font-bold underline underline-offset-2 text-purple-600 dark:text-white">
         <Link href={`/gallery/${folder}`} key={folderName}>
           <h1>{folderName}</h1>

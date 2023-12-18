@@ -4,10 +4,7 @@ import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <nav className="grid grid-cols-4 grid-rows-1 bg-purple-600 p-6 m-2 rounded-lg">
-      <div className="col-span-1 text-white font-bold text-lg text-center hover:opacity-50">
-        <Link href="/">Ayo Odeleye</Link>
-      </div>
+    <nav className="grid grid-cols-3 grid-rows-1 bg-purple-600 p-6 m-2 rounded-lg">
       <div className="col-span-1 flex justify-center items-center">
         <a
           href="https://github.com/AyoEvanson/"
@@ -17,6 +14,9 @@ export default function Navbar() {
         >
           <FaGithub />
         </a>
+      </div>
+      <div className="col-span-1 text-white font-bold text-2xl text-center hover:opacity-50">
+        <Link href="/">Ayo Odeleye</Link>
       </div>
       <div className="col-span-1 flex justify-center items-center">
         <a
@@ -28,7 +28,7 @@ export default function Navbar() {
           <FaLinkedin />
         </a>
       </div>
-      <div className="col-span-1 flex justify-center items-center">
+      {/* <div className="col-span-1 flex justify-center items-center">
         <a
           href="https://www.instagram.com/ayo__odeleye/"
           target="_blank"
@@ -37,7 +37,7 @@ export default function Navbar() {
         >
           <FaInstagram />
         </a>
-      </div>
+      </div> */}
     </nav>
   );
 }
