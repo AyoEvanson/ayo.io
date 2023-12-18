@@ -26,43 +26,50 @@ export default function HorizontalScroll({
     setLoading(false);
   }, []);
 
-  if (screen.orientation.angle == 0) {
-    useEffect(() => {
-      let skillSet = gsap.utils.toArray(".skill-set");
-      let scrollerEndpoint = skillSet.length * 140;
+  useEffect(() => {
+    let skillSet = gsap.utils.toArray(".skill-set");
+    let scrollerEndpoint = skillSet.length * 100;
 
-      let to = gsap.to(skillSet, {
-        xPercent: () => -100 * (skillSet.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: scroller.current,
-          markers: false,
-          pin: true,
-          pinSpacing: true,
-          scrub: 0.5,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
+    let to = gsap.to(skillSet, {
+      xPercent: () => -100 * (skillSet.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: scroller.current,
+        markers: false,
+        pin: true,
+        pinSpacing: true,
+        scrub: 0.5,
+        invalidateOnRefresh: true,
+        anticipatePin: 1,
 
-          end: () => "+=" + scrollerEndpoint,
-        },
-      });
-
-      return () => {
-        to.kill();
-      };
+        end: () => "+=" + scrollerEndpoint,
+      },
     });
 
+    return () => {
+      to.kill();
+    };
+  });
+
+  if (isLoading)
+    return (
+      <p className="p-5 text-2xl text-center text-purple-800 dark:text-white animate-bounce">
+        Loading...
+      </p>
+    );
+
+  if (screen.orientation.angle == 0) {
     return (
       <>
         <div className="overflow-hidden flex">
           <div>
-            <div id="skills" ref={scroller} className="flex relative h-[80vh]">
+            <div id="skills" ref={scroller} className="flex relative h-[90vh]">
               {imageNames.map((imageName, index) => (
                 <section
                   key={imageName}
-                  className="skill-set grid grid-cols-1 mt-2 w-[45vw] bg-transparent"
+                  className="skill-set grid grid-cols-1 m-2 h-[90vh] w-[45vw] bg-purple-900 rounded-lg border-purple-500 border-2"
                 >
-                  <div className="col-span-1 mb-2 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
+                  <div className="col-span-1 m-2 mt-4 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
                     <h2>{imageName}</h2>
                   </div>
                   <div className="col-span-1 inline-flex items-center">
@@ -78,7 +85,7 @@ export default function HorizontalScroll({
                         height: "100%",
                         margin: "auto",
                       }}
-                      className="object-contain max-h-[80vh]"
+                      className="object-contain max-h-[70vh]"
                     />
                   </div>
                 </section>
@@ -88,7 +95,7 @@ export default function HorizontalScroll({
         </div>
       </>
     );
-  } else if (screen.orientation.angle != 0) {
+  } else {
     return (
       <>
         <div className="grid grid-cols-2 flex-col ">
@@ -122,11 +129,4 @@ export default function HorizontalScroll({
       </>
     );
   }
-
-  if (isLoading)
-    return (
-      <p className="p-5 text-2xl text-center text-purple-800 dark:text-white animate-bounce">
-        Loading...
-      </p>
-    );
 }
