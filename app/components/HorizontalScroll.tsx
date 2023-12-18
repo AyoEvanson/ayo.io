@@ -13,25 +13,27 @@ export default function HorizontalScroll({
   folderId: string;
 }) {
   const scroller = useRef(null);
-  const skills = useRef(null);
+  const images = useRef(null);
   const [isLoading, setLoading] = useState(true);
-
   let imageNames: string[] = [];
 
+  //collate image names
   imageData.forEach((image) => {
     imageNames.push(image.iName);
   });
 
+  //loading use effect
   useEffect(() => {
     setLoading(false);
   }, []);
 
+  //horizontal scroll effect
   useEffect(() => {
-    let skillSet = gsap.utils.toArray(".skill-set");
-    let scrollerEndpoint = skillSet.length * 100;
+    let imageSet = gsap.utils.toArray(".image-set");
+    let scrollerEndpoint = imageSet.length * 110;
 
-    let to = gsap.to(skillSet, {
-      xPercent: () => -100 * (skillSet.length - 1),
+    let to = gsap.to(imageSet, {
+      xPercent: () => -100 * (imageSet.length - 1),
       ease: "none",
       scrollTrigger: {
         trigger: scroller.current,
@@ -45,12 +47,20 @@ export default function HorizontalScroll({
         end: () => "+=" + scrollerEndpoint,
       },
     });
-
     return () => {
       to.kill();
     };
   });
 
+  //resize event listener
+  const [width, setWidth] = useState(0); // default width, detect on server.
+  const handleResize = () => setWidth(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
+
+  //loading output
   if (isLoading)
     return (
       <p className="p-5 text-2xl text-center text-purple-800 dark:text-white animate-bounce">
@@ -58,18 +68,20 @@ export default function HorizontalScroll({
       </p>
     );
 
-  if (screen.orientation.angle == 0) {
+  //image output
+  if (window.innerWidth > window.innerHeight) {
+    console.log(window.innerWidth, window.innerHeight);
     return (
       <>
         <div className="overflow-hidden flex">
           <div>
-            <div id="skills" ref={scroller} className="flex relative h-[90vh]">
+            <div id="images" ref={scroller} className="flex relative h-[90vh]">
               {imageNames.map((imageName, index) => (
                 <section
                   key={imageName}
-                  className="skill-set grid grid-cols-1 m-2 h-[90vh] w-[45vw] bg-purple-900 rounded-lg border-purple-500 border-2"
+                  className="image-set grid grid-cols-1 m-2 h-[90vh] w-[40vw] bg-purple-700 rounded-lg border-purple-500 border-4"
                 >
-                  <div className="col-span-1 m-2 mt-4 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
+                  <div className="col-span-1 m-2 mt-4 text-center text-white text-sm sm:text-xl font-bold underline">
                     <h2>{imageName}</h2>
                   </div>
                   <div className="col-span-1 inline-flex items-center">
@@ -85,7 +97,7 @@ export default function HorizontalScroll({
                         height: "100%",
                         margin: "auto",
                       }}
-                      className="object-contain max-h-[70vh]"
+                      className="object-contain max-h-[75vh]"
                     />
                   </div>
                 </section>
@@ -102,7 +114,7 @@ export default function HorizontalScroll({
           {imageNames.map((imageName, index) => (
             <section
               key={imageName}
-              className="col-span-1 m-2 bg-purple-900 rounded-lg border-purple-500 border-2"
+              className="col-span-1 m-2 bg-purple-700 rounded-lg border-purple-500 border-4 items-center"
             >
               <div className="col-span-1 mb-2 text-center text-purple-600 dark:text-white text-sm sm:text-xl font-bold underline">
                 <h2>{imageName}</h2>

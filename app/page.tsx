@@ -11,7 +11,7 @@ export default function Home() {
         </p>
       </header>
 
-      <main className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0 ml-10 mr-10 mb-12 text-white sm:dark:border-lime-200 sm:border-2 sm:rounded-xl">
+      <main className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-0 ml-10 mr-10 mb-12 text-white sm:dark:border-purple-400 sm:border-4 sm:rounded-xl">
         <section className="col-span-1 inline-flex flex-col sm:bg-purple-500 sm:rounded-tl-lg">
           <section
             key="who"

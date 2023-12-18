@@ -1,10 +1,15 @@
 import Link from "next/link";
 import React from "react";
-import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import MyDropdown from "./MyDropdown";
+import MyContact from "./ContactInfo";
 
 export default function Navbar() {
   return (
-    <nav className="grid grid-cols-3 grid-rows-1 bg-purple-600 p-6 m-2 rounded-lg">
+    <nav className="grid grid-cols-5 grid-rows-1 bg-purple-600 p-6 m-2 rounded-lg">
+      <div className="col-span-1 flex justify-center items-left">
+        <MyDropdown />
+      </div>
       <div className="col-span-1 flex justify-center items-center">
         <a
           href="https://github.com/AyoEvanson/"
@@ -15,7 +20,7 @@ export default function Navbar() {
           <FaGithub />
         </a>
       </div>
-      <div className="col-span-1 text-white font-bold text-2xl text-center hover:opacity-50">
+      <div className="col-span-1 flex justify-center items-center text-white font-bold text-xl text-center hover:opacity-50">
         <Link href="/">Ayo Odeleye</Link>
       </div>
       <div className="col-span-1 flex justify-center items-center">
@@ -28,16 +33,9 @@ export default function Navbar() {
           <FaLinkedin />
         </a>
       </div>
-      {/* <div className="col-span-1 flex justify-center items-center">
-        <a
-          href="https://www.instagram.com/ayo__odeleye/"
-          target="_blank"
-          className="text-3xl text-white hover:opacity-50"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram />
-        </a>
-      </div> */}
+      <div className="col-span-1 flex justify-center items-right">
+        <MyContact />
+      </div>
     </nav>
   );
 }

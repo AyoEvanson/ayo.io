@@ -13,8 +13,9 @@ export default function ProfilePicture() {
         priority={true}
         style={{
           maxWidth: "100%",
-          height: "auto"
-        }} />
+          height: "auto",
+        }}
+      />
     </div>
   );
 }
