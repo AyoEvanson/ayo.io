@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 
 export default function Gallery() {
   let imageFolders = getImageFolders();
-  // console.log(imageFolders);
 
   return (
     <>

@@ -16,7 +16,7 @@ export default function MyDropdown() {
         <Button
           variant="shadow"
           color="secondary"
-          className="font-semibold text-lg"
+          className="font-semibold text-sm sm:text-lg"
         >
           Menu
         </Button>
@@ -25,8 +25,14 @@ export default function MyDropdown() {
         <DropdownItem key="home" href="/">
           Home
         </DropdownItem>
+        <DropdownItem key="blog" href="/blog">
+          Blog
+        </DropdownItem>
         <DropdownItem key="gallery" href="/gallery">
           Gallery
+        </DropdownItem>
+        <DropdownItem key="about" href="/about">
+          About me
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

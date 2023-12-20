@@ -1,6 +1,6 @@
 import HorizontalScroll from "@/app/components/HorizontalScroll";
-import { getFolderImages, getImageFolders } from "@/app/lib/gallery";
-import { notFound } from "next/navigation";
+import { getFolderImages } from "@/app/lib/gallery";
+import notFound from "./not-found";
 
 export function generateMetadata({ params }: { params: { folderId: string } }) {
   let { folderId } = params;

@@ -14,20 +14,20 @@ export default function Navbar() {
         <a
           href="https://github.com/AyoEvanson/"
           target="_blank"
-          className="text-3xl text-white hover:opacity-50"
+          className="text-xl sm:text-3xl text-white hover:opacity-50"
           rel="noopener noreferrer"
         >
           <FaGithub />
         </a>
       </div>
-      <div className="col-span-1 flex justify-center items-center text-white font-bold text-xl text-center hover:opacity-50">
+      <div className="col-span-1 flex justify-center items-center text-white font-bold text-sm sm:text-xl text-center hover:opacity-50">
         <Link href="/">Ayo Odeleye</Link>
       </div>
       <div className="col-span-1 flex justify-center items-center">
         <a
           href="https://www.linkedin.com/in/ayo-o-4a5898196/"
           target="_blank"
-          className="text-3xl text-white hover:opacity-50"
+          className="text-xl sm:text-3xl text-white hover:opacity-50"
           rel="noopener noreferrer"
         >
           <FaLinkedin />

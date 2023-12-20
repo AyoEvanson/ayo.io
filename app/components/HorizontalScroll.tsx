@@ -13,7 +13,6 @@ export default function HorizontalScroll({
   folderId: string;
 }) {
   const scroller = useRef(null);
-  const images = useRef(null);
   const [isLoading, setLoading] = useState(true);
   let imageNames: string[] = [];
 
@@ -30,7 +29,7 @@ export default function HorizontalScroll({
   //horizontal scroll effect
   useEffect(() => {
     let imageSet = gsap.utils.toArray(".image-set");
-    let scrollerEndpoint = imageSet.length * 110;
+    let scrollerEndpoint = imageSet.length * (window.innerWidth / 10);
 
     let to = gsap.to(imageSet, {
       xPercent: () => -100 * (imageSet.length - 1),
@@ -70,7 +69,7 @@ export default function HorizontalScroll({
 
   //image output
   if (window.innerWidth > window.innerHeight) {
-    console.log(window.innerWidth, window.innerHeight);
+    // console.log(window.innerWidth, window.innerHeight);
     return (
       <>
         <div className="overflow-hidden flex">

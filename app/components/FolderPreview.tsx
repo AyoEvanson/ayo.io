@@ -2,10 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { getFolderImages } from "../lib/gallery";
 import { Suspense } from "react";
+import { notFound } from "next/navigation";
 
 export default function FolderPreview({ folder }: { folder: string }) {
-  let imageNames = getFolderImages(folder);
-  // console.log(imageNames);
+  let imageNames: ImageInfo[] = [];
+  try {
+    imageNames = getFolderImages(folder);
+  } catch {
+    return notFound();
+  }
 
   // Randomly select 3 images
   let previewImages = [];

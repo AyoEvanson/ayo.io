@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import notfound from "../gallery/[folderId]/not-found";
 
 export function getImageFolders() {
   const imagesDir = path.join(process.cwd(), "public/images/photography");
@@ -18,7 +19,7 @@ export function getFolderImages(folder: string) {
     folder
   );
 
-  let imageNames = fs.readdirSync(imagesDir);
+  let imageNames: string[] = fs.readdirSync(imagesDir);
 
   let imageData: ImageInfo[] = [];
 
@@ -29,5 +30,6 @@ export function getFolderImages(folder: string) {
     };
     imageData.push(newImage);
   });
+
   return imageData;
 }

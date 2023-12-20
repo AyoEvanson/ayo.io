@@ -15,7 +15,7 @@ export default function MyContact() {
         <Button
           variant="shadow"
           color="secondary"
-          className="font-semibold text-lg"
+          className="font-semibold text-sm sm:text-lg"
         >
           Get in touch
         </Button>
